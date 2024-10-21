@@ -2312,6 +2312,14 @@ html:has(.drawer-toggle:checked) {
   grid-column-start: 2;
 }
 
+.row-span-7 {
+  grid-row: span 7 / span 7;
+}
+
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
 .row-start-1 {
   grid-row-start: 1;
 }
@@ -2320,12 +2328,29 @@ html:has(.drawer-toggle:checked) {
   display: block;
 }
 
+.flex {
+  display: flex;
+}
+
 .table {
   display: table;
 }
 
 .grid {
   display: grid;
+}
+
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-full {
@@ -2340,6 +2365,18 @@ html:has(.drawer-toggle:checked) {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
+.min-w-64 {
+  min-width: 16rem;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -2348,12 +2385,52 @@ html:has(.drawer-toggle:checked) {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-rows-12 {
+  grid-template-rows: repeat(12, minmax(0, 1fr));
+}
+
+.grid-rows-10 {
+  grid-template-rows: repeat(10, minmax(0, 1fr));
+}
+
+.grid-rows-8 {
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .place-items-center {
   place-items: center;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .border {

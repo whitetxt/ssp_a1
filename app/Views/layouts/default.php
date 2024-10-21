@@ -9,9 +9,11 @@
     <script src="/static/script/theme.js" defer></script>
 </head>
 
-<body>
+<body class="w-screen h-screen flex flex-col">
     <?= $this->include("partial/nav") ?>
-    <div class="p-4"><?= $this->renderSection("content") ?></div>
+    <div class="p-4 grow overflow-hidden">
+        <?= $this->renderSection("content") ?>
+    </div>
 </body>
 
 </html>

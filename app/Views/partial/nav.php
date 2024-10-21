@@ -1,4 +1,4 @@
-<div class="drawer z-50">
+<div class="drawer z-50 row-span-1">
     <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
         <div class="navbar bg-base-100 shadow-xl p-4">
