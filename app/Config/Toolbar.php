@@ -10,6 +10,7 @@ use CodeIgniter\Debug\Toolbar\Collectors\Logs;
 use CodeIgniter\Debug\Toolbar\Collectors\Routes;
 use CodeIgniter\Debug\Toolbar\Collectors\Timers;
 use CodeIgniter\Debug\Toolbar\Collectors\Views;
+// use CodeIgniter\Debug\Toolbar\Collectors\Cache;
 
 /**
  * --------------------------------------------------------------------------
@@ -38,7 +39,7 @@ class Toolbar extends BaseConfig
         Database::class,
         Logs::class,
         Views::class,
-        // \CodeIgniter\Debug\Toolbar\Collectors\Cache::class,
+        // Cache::class,
         Files::class,
         Routes::class,
         Events::class,
