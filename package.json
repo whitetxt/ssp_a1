@@ -1,0 +1,8 @@
+{
+    "devDependencies": {
+        "daisyui": "^4.12.13"
+    },
+    "scripts": {
+        "css": "npx tailwindcss -i ./public/static/style/input.css -o ./public/static/style/style.css --watch"
+    }
+}
