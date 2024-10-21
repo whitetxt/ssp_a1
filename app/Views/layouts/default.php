@@ -11,7 +11,7 @@
 
 <body class="w-screen h-screen flex flex-col">
     <?= $this->include("partial/nav") ?>
-    <div class="p-4 grow overflow-hidden">
+    <div class="p-4 grow md:overflow-hidden">
         <?= $this->renderSection("content") ?>
     </div>
 </body>

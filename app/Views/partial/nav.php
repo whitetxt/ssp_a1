@@ -3,7 +3,7 @@
     <div class="drawer-content">
         <div class="navbar bg-base-100 shadow-xl p-4">
             <div class="navbar-start gap-8">
-                <label for="nav-drawer" class="btn btn-outline btn-primary drawer-button">Menu</label>
+                <label for="nav-drawer" class="btn btn-primary drawer-button">Menu</label>
             </div>
             <div class="navbar-center">
                 <a class="text-xl font-bold"><?= $title ?></a>
