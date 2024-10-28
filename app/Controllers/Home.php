@@ -14,16 +14,11 @@ class Home extends BaseController
             $final_animals[] = $animals[$idx];
         }
         $events = model("Event");
-        $events = $events->findAll();
-        $indexes = array_rand($events, min(3, count($events)));
-        $final_events = [];
-        foreach ($indexes as $idx) {
-            $final_events[] = $events[$idx];
-        }
+        $events = $events->where("date >= current_date")->orderBy("date", "ASC")->limit(3)->findAll();
         $data = [
             "title" => "Home",
             "animals" => $final_animals,
-            "events" => $final_events,
+            "events" => $events,
         ];
         
         return view('Home/index', $data);
