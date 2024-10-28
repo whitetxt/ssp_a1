@@ -2,7 +2,7 @@
 <?= $this->section("content") ?>
 <div class="flex h-full">
     <div id="randomAnimals"
-        class="flex flex-row lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
+        class="grid grid-rows-10 lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
         <a class="btn btn-secondary" href="/animals">
             See all animals
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -13,11 +13,10 @@
         <?php 
         foreach ($animals as $animal):
         ?>
-        <div class="card bg-base-100 w-full shadow-xl border border-secondary">
-            <div class="card-body">
+        <div class="card card-compact bg-base-100 w-full shadow-xl border border-secondary row-span-3">
+            <div class="card-body overflow-hidden">
                 <h2 class="card-title"><?= $animal["name"] ?> (<?= $animal["species"]?>)</h2>
-                <p><?= $animal["description"] ?></p>
-                <p>Age: <?= $animal["age"] ?></p>
+                <p class="overflow-y-auto"><?= $animal["description"] ?></p>
             </div>
         </div>
         <?php endforeach; ?>
@@ -37,16 +36,15 @@
 
         <p>ref:https://britishwildlifecentre.co.uk/aboutus/our-story/</p>
     </div>
-    <div id="events" class="flex flex-row lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
+    <div id="events" class="grid grid-rows-10 lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
         <a class="btn btn-secondary" href="/events">
-            See all events
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
+            See all events
         </a>
         <?php foreach ($events as $event): ?>
-        <div class="card bg-base-100 w-full shadow-xl border border-secondary">
+        <div class="card bg-base-100 w-full shadow-xl border border-secondary row-span-3">
             <div class="card-body">
                 <h2 class="card-title"><?= $event["name"] ?></h2>
                 <p><?= $event["description"] ?></p>
