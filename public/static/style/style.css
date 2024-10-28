@@ -2991,6 +2991,10 @@ html:has(.drawer-toggle:checked) {
   grid-template-rows: repeat(10, minmax(0, 1fr));
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -3001,6 +3005,10 @@ html:has(.drawer-toggle:checked) {
 
 .place-items-center {
   place-items: center;
+}
+
+.items-center {
+  align-items: center;
 }
 
 .justify-evenly {

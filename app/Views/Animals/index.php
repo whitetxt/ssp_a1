@@ -2,6 +2,7 @@
 <?= $this->section("content") ?>
 <div class="h-full flex flex-col gap-4">
     <div class="prose max-w-[100%]">
+        <!-- ref: https://britishwildlifecentre.co.uk/planyourvisit/animals/ -->
         <h1>Animals at the British Wildlife Centre</h1>
         <p>These are some of the forty or so species on display at the Centre. You should see most of these when you visit, unless the animals are having a check-up or work being carried out on their enclosures. Just click on the links below to learn more about these species.</p>
     </div>
