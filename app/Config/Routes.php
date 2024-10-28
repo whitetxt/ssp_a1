@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get("/animals", "Animal::index");
+$routes->get("/events", "Event::index");

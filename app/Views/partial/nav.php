@@ -31,10 +31,10 @@
     </div>
     <div class="drawer-side">
         <label for="nav-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-        <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-            <!-- Sidebar content here -->
+        <ul class="menu bg-base-300 text-base-content min-h-full w-80 gap-4">
             <li><a class="btn" href="/">Homepage</a></li>
             <li><a class="btn" href="/animals">Animals</a></li>
+            <li><a class="btn" href="/events">Events</a></li>
         </ul>
     </div>
 </div>

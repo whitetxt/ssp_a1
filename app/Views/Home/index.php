@@ -2,8 +2,8 @@
 <?= $this->section("content") ?>
 <div class="flex h-full">
     <div id="randomAnimals"
-        class="flex flex-row lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4">
-        <a class="btn btn-secondary btn-outline" href="/animals">
+        class="flex flex-row lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
+        <a class="btn btn-secondary" href="/animals">
             See all animals
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -24,6 +24,25 @@
         <?php endforeach; ?>
     </div>
     <div id="rest" class="grow"></div>
-    <div id="events"></div>
+    <div id="events" class="flex flex-row lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
+        <a class="btn btn-secondary" href="/events">
+            See all events
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+        </a>
+        <?php 
+        foreach ($events as $event):
+        ?>
+        <div class="card bg-base-100 w-full shadow-xl border border-secondary">
+            <div class="card-body">
+                <h2 class="card-title"><?= esc($event["name"]) ?></h2>
+                <p><?= esc($event["description"]) ?></p>
+                <p>Perfect for <?= esc($event["audience"]) ?></p>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 <?= $this->endSection() ?>
