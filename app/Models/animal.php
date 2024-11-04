@@ -24,5 +24,6 @@ class Animal extends Model
         "population",
         "looks",
         "image",
+        "image2",
     ];
 }

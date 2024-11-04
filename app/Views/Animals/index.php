@@ -9,11 +9,11 @@
     <div class="grid grid-cols-4 gap-8 overflow-y-auto h-full p-2 shadow-md rounded-md border border-primary">
         <?php foreach($animals as $animal): ?>
         <div class="card bg-base-100 image-full w-full shadow-xl border border-secondary">
-            <figure>
+            <figure class="max-h-[300px]">
                 <img
                 src="/static/img/<?=$animal["image"]?>"
                 alt="<?= $animal["name"] ?>"
-                class="w-full blur"/>
+                class="w-full blur-sm"/>
             </figure>
             <div class="card-body">
                 <h2 class="card-title"><?= $animal["name"] ?> - <?=$animal["species"]?></h2>

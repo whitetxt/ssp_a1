@@ -1,27 +1,28 @@
 <?= $this->extend("layouts/default") ?>
 <?= $this->section("content") ?>
-<div class="h-full flex flex-col gap-4">
-    <div class="prose max-w-[100%]">
-        <!-- ref: https://britishwildlifecentre.co.uk/planyourvisit/animals/ -->
+<div class="h-full flex flex-col gap-4 max-w-[60%] mx-auto">
+    <div class="prose max-w-[100%] text-center">
+        <a href="/animals" class="btn btn-outline btn-primary mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+            Back
+        </a>
         <h1><?=$animal["name"]?> - <i><?=$animal["species"]?></i></h1>
-        <p>These are some of the forty or so species on display at the Centre. You should see most of these when you visit, unless the animals are having a check-up or work being carried out on their enclosures. Just click on the links below to learn more about these species.</p>
     </div>
-    <div class="grid grid-cols-4 gap-8 overflow-y-auto h-full p-2 shadow-md rounded-md border border-primary">
-        <div class="card bg-base-100 image-full w-full shadow-xl border border-secondary">
-            <figure>
-                <img
-                src="/static/img/<?=$animal["image"]?>"
-                alt="<?= $animal["name"] ?>"
-                class="w-full blur"/>
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title"><?= $animal["name"] ?> - <?=$animal["species"]?></h2>
-                <p><?= strlen($animal["description"]) > 250 ? substr($animal["description"], 0, 250) . '...' : $animal["description"] ?></p>
-                <div class="card-actions justify-end">
-                    <a class="btn btn-primary" href="/animals/<?=$animal['id']?>">View More</a>
-                </div>
-            </div>
-        </div>
+    <div class="prose max-w-[100%]">
+        <img src="/static/img/<?=$animal['image']?>" alt="" class="float-right ml-4 max-w-64">
+        <p><?=$animal["description"]?></p>
+    </div>
+    <div>
+        <img src="/static/img/<?=$animal['image2']?>" alt="" class="float-left mr-4 max-w-64">
+        <p><b>Origin - </b><?=$animal["origin"]?></p>
+        <p><b>Size - </b><?=$animal["size"]?></p>
+        <p><b>Habitat - </b><?=$animal["habitat"]?></p>
+        <p><b>Young - </b><?=$animal["young"]?></p>
+        <p><b>Diet - </b><?=$animal["diet"]?></p>
+        <p><b>Population - </b><?=$animal["population"]?></p>
+        <p><b>Looks - </b><?=$animal["looks"]?></p>
     </div>
 </div>
 <?= $this->endSection() ?>
