@@ -13,7 +13,13 @@
         <?php 
         foreach ($animals as $animal):
         ?>
-        <div class="card card-compact bg-base-100 w-full shadow-xl border border-secondary row-span-3">
+        <div class="card card-compact image-full bg-base-100 w-full shadow-xl border border-secondary row-span-3">
+            <figure>
+                <img
+                src="/static/img/<?=$animal["image"]?>"
+                alt="<?= $animal["name"] ?>"
+                class="w-full blur-sm brightness-75"/>
+            </figure>
             <div class="card-body overflow-hidden">
                 <h2 class="card-title"><?= $animal["name"] ?> (<?= $animal["species"]?>)</h2>
                 <p class="overflow-y-auto"><?= $animal["description"] ?></p>
