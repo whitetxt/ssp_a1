@@ -2,7 +2,7 @@
 <?= $this->section("content") ?>
 <div class="flex h-full">
     <div id="randomAnimals"
-        class="grid grid-rows-10 lg:flex-col justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
+        class="grid grid-rows-10 justify-evenly min-w-64 h-full flex-wrap overflow-hidden gap-4 max-w-[15vw]">
         <a class="btn btn-secondary" href="/animals">
             See all animals
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
