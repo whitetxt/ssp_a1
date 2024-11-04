@@ -16,12 +16,11 @@
                 class="w-full blur"/>
             </figure>
             <div class="card-body">
-                <h2 class="card-title"><?= $animal["name"] ?></h2>
-                <p><?= $animal["description"] ?></p>
-                <p>Species: <?= $animal["species"] ?></p>
-                <p>Age: <?= $animal["age"] ?></p>
-                <p>Arrival Date: <?= $animal["arrival_date"] ?></p>
-                <p>Rescued: <?= $animal["is_rescued"] ? "Yes" : "No" ?></p>
+                <h2 class="card-title"><?= $animal["name"] ?> - <?=$animal["species"]?></h2>
+                <p><?= strlen($animal["description"]) > 250 ? substr($animal["description"], 0, 250) . '...' : $animal["description"] ?></p>
+                <div class="card-actions justify-end">
+                    <a class="btn btn-primary" href="/animals/<?=$animal['id']?>">View More</a>
+                </div>
             </div>
         </div>
         <?php endforeach; ?>
