@@ -9,8 +9,8 @@ module.exports = {
       themes: [
           {
               "forestLight": {
-                  "primary": "#606c38",
-                  "secondary": "#dda15e",
+                  "primary": "#7a9e7e",
+                  "secondary": "#31493c",
                   "accent": "#bc6c25",
                   "neutral": "#fefae0",
                   "base-100": "#f1f8f2",
