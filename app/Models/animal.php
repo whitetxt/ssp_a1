@@ -10,17 +10,19 @@ class Animal extends Model
     protected $primaryKey = "id";
     protected array $casts = [
         "id" => "int",
-        "age" => "int",
-        // "arrival_date" => "timestamp",
-        "is_rescued" => "bool",
     ];
     protected $fields = [
         "id",
         "name",
         "description",
         "species",
-        "age",
-        "arrival_date",
-        "is_rescued",
+        "origin",
+        "size",
+        "habitat",
+        "young",
+        "diet",
+        "population",
+        "looks",
+        "image",
     ];
 }
