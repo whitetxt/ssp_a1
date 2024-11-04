@@ -10,7 +10,7 @@
             </div>
             <div class="navbar-end">
                 <label class="grid cursor-pointer place-items-center">
-                    <input type="checkbox" value="dim"
+                    <input type="checkbox" value="forestDark"
                         class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
                         onchange="themeChange()" id="themeCheckbox" />
                     <svg class="stroke-base-100 fill-base-100 col-start-1 row-start-1"
