@@ -13,12 +13,11 @@
         <?php 
         foreach ($animals as $animal):
         ?>
-        <div class="card card-compact image-full bg-base-100 w-full shadow-xl border border-secondary row-span-3">
+        <div class="card card-compact animal-card">
             <figure>
                 <img
                 src="/static/img/<?=$animal["image"]?>"
-                alt="<?= $animal["name"] ?>"
-                class="w-full blur-sm brightness-75"/>
+                alt="<?= $animal["name"] ?>"/>
             </figure>
             <div class="card-body overflow-hidden">
                 <h2 class="card-title"><?= $animal["name"] ?> (<?= $animal["species"]?>)</h2>
@@ -48,32 +47,12 @@
             </svg>
             See all events
         </a>
-        <?php foreach ($events as $event):
-        $state = "Upcoming";
-        $date = new DateTime($event["date"]);
-        $now = new DateTime();
-        $now = new DateTime($now->format("Y-m-d"));
-        // if date is today
-        if ($date->format("Y-m-d") === $now->format("Y-m-d")) {
-            $state = "Today!";
-        } else if ($now->diff($date)->days < 7){
-            $state = "Soon";
-        }
-        $text = $state;
-        $days = $now->diff($date)->days;
-        if ($state === "Soon") {
-            $text = "In {$days} day";
-            if ($days > 1) {
-                $text .= "s";
-            }
-        }
-        $badge_type = ["Soon" => "badge-warning", "Today!" => "badge-success"];
-        $border_type = ["Soon" => "border border-warning", "Today!" => "border border-success", "Upcoming" => "border border-secondary"];
-        if (array_search($state, ["Soon", "Today!"]) !== false) { ?>
+        <?php foreach ($events as $event): ?>
         <div class="indicator w-full row-span-3">
-            <span class="indicator-item indicator-center badge <?=$badge_type[$state]?>"> <?=$text?></span>
-        <?php } ?>
-            <div class="card bg-base-100 w-full shadow-xl <?=$border_type[$state]?> row-span-3">
+            <span class="indicator-item indicator-center event-<?=$event["state"]?>">
+                <?=$event["text"]?>
+            </span>
+            <div class="card bg-base-100 w-full shadow-xl row-span-3">
                 <div class="card-body">
                 <h2 class="card-title"><?= $event["name"] ?></h2>
                     <p class="flex flex-row items-center"><?= $event["description"] ?></p>
@@ -81,10 +60,8 @@
                     <p class="flex flex-row items-center">Date: <?= $event["date"] ?></p>
                 </div>
             </div>
-        <?php if (array_search($state, ["Soon", "Today!"]) !== false) { ?>
         </div>
-        <?php }
-        endforeach; ?>
+        <?php endforeach; ?>
     </div>
 </div>
 <?= $this->endSection() ?>

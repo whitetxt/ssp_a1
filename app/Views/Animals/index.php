@@ -8,7 +8,7 @@
     </div>
     <div class="grid grid-cols-4 gap-8 overflow-y-auto h-full p-2 shadow-md rounded-md border border-primary">
         <?php foreach($animals as $animal): ?>
-        <div class="card bg-base-100 image-full w-full shadow-xl border border-secondary">
+        <div class="card animal-card">
             <figure class="max-h-[300px]">
                 <img
                 src="/static/img/<?=$animal["image"]?>"

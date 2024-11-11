@@ -5,3 +5,26 @@
 .card.image-full::before {
     @apply opacity-50;
 }
+
+/* Applying tailwind classes to different classnames as abstraction */
+.animal-card {
+    @apply image-full bg-base-100 w-full shadow-xl border border-secondary row-span-3;
+}
+
+.animal-card > figure > img {
+    @apply w-full blur-sm brightness-75;
+}
+
+.event-today {
+    @apply badge badge-success;
+}
+.indicator:has(.event-today) > .card {
+    @apply border border-success;
+}
+
+.event-soon {
+    @apply badge badge-warning;
+}
+.indicator:has(.event-soon) > .card {
+    @apply border border-warning;
+}
