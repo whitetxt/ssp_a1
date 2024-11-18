@@ -4,20 +4,21 @@
     <div class="flex gap-4 items-center">
         <span>Filters: </span>
         <select class="select select-bordered w-full max-w-xs" onchange="applyFilters()" id="audienceSelect">
-            <option disabled selected>Audience</option>
+            <option disabled selected value="all">Audience</option>
             <option value="all">All</option>
             <?php foreach ($event_types as $type):?>
             <option value="<?=$type?>"><?=ucfirst($type)?></option>
             <?php endforeach; ?>
         </select>
-        <input type="date" class="input input-bordered w-full max-w-xs" onchange="applyFilters()" id="dateInput" />
+        <input type="text" class="input input-bordered w-full max-w-xs" onkeyup="applyFilters()" id="descInput"
+            placeholder="Search by description" />
         <button class="btn btn-outline btn-primary" onclick="clearFilters()">Clear Filters</button>
     </div>
     <div class="divider mt-0 mb-8">Current Events</div>
     <div class="grid grid-cols-4 gap-8">
         <?php foreach($events as $event): ?>
-        <div class="indicator w-full" data-audience="<?=$event["audience"]?>" data-date="<?=$event["date"] ?>">
-            <span class=" indicator-item indicator-center event-<?=$event["state"]?>">
+        <div class="indicator w-full" data-audience="<?=$event["audience"]?>" data-desc="<?=$event["description"] ?>">
+            <span class="indicator-item indicator-center event-<?=$event["state"]?>">
                 <?=$event["text"]?>
             </span>
             <div class="card bg-base-100 w-full shadow-xl">
@@ -35,7 +36,7 @@
     <div class="grid grid-cols-4 gap-8">
         <?php foreach($past_events as $event): ?>
         <div class="card bg-base-100 w-full shadow-xl" data-audience="<?=$event["audience"]?>"
-            data-date="<?=$event["date"] ?>">
+            data-desc="<?=$event["description"] ?>">
             <div class="card-body">
                 <h2 class="card-title"><?= $event["name"] ?></h2>
                 <p><?= $event["description"] ?></p>
@@ -56,9 +57,7 @@ function audienceChange(eventState) {
         if (eventState[i] === false) {
             continue;
         }
-        if (events[i].dataset.audience === audience || audience === "all") {
-            eventState[i] = true;
-        } else {
+        if (events[i].dataset.audience !== audience && audience !== "all") {
             eventState[i] = false;
         }
     }
@@ -70,26 +69,22 @@ function audienceChange(eventState) {
     return eventState;
 }
 
-const dateInput = document.getElementById("dateInput");
+const descriptionInput = document.getElementById("descInput");
 
-function dateChange(eventState) {
-    // const date = new Date(dateInput.value);
-    // const dateString = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-    const date = dateInput.value;
+function descriptionSearch(eventState) {
+    const desc = descriptionInput.value;
     for (var i = 0; i < events.length; i++) {
         if (eventState[i] === false) {
             continue;
         }
-        if (events[i].dataset.date === date || date === "") {
-            eventState[i] = true;
-        } else {
+        if ((!events[i].dataset.desc.toLowerCase().includes(desc.toLowerCase())) && desc !== "") {
             eventState[i] = false;
         }
     }
-    if (date === "") {
-        dateInput.classList.remove("input-secondary");
+    if (desc === "") {
+        descriptionInput.classList.remove("input-secondary");
     } else {
-        dateInput.classList.add("input-secondary");
+        descriptionInput.classList.add("input-secondary");
     }
     return eventState;
 }
@@ -97,8 +92,8 @@ function dateChange(eventState) {
 function clearFilters() {
     audienceSelect.value = "all";
     audienceSelect.classList.remove("select-secondary");
-    dateInput.value = "";
-    dateInput.classList.remove("input-secondary");
+    descriptionInput.value = "";
+    descriptionInput.classList.remove("input-secondary");
     events.forEach((event) => {
         event.classList.remove("hidden");
     });
@@ -107,7 +102,7 @@ function clearFilters() {
 function applyFilters() {
     var eventState = Array.from(Array(events.length).keys(), () => true);
     eventState = audienceChange(eventState);
-    eventState = dateChange(eventState);
+    eventState = descriptionSearch(eventState);
     for (var i = 0; i < events.length; i++) {
         if (eventState[i] === true) {
             events[i].classList.remove("hidden");
