@@ -32,10 +32,17 @@ class Event extends BaseController
             $events[$i]["state"] = $state;
             $events[$i]["text"] = $text;
         }
+        $event_types = [];
+        foreach ($events as $event) {
+            if (!in_array($event["audience"], $event_types)) {
+                $event_types[] = $event["audience"];
+            }
+        }
         $data = [
             "title" => "Events",
             "events" => $events,
-            "past_events" => $past_events
+            "past_events" => $past_events,
+            "event_types" => $event_types,
         ];
         
         return view('Events/index', $data);
