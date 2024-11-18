@@ -4,8 +4,7 @@
     <div class="flex gap-4 items-center">
         <span>Filters: </span>
         <select class="select select-bordered w-full max-w-xs" onchange="applyFilters()" id="audienceSelect">
-            <option disabled selected value="all">Audience</option>
-            <option value="all">All</option>
+            <option selected value="all">All</option>
             <?php foreach ($event_types as $type):?>
             <option value="<?=$type?>"><?=ucfirst($type)?></option>
             <?php endforeach; ?>
